@@ -9,10 +9,10 @@ const Profile = () => {
     <View style={styles.container}>
       <View style={styles.profileContainer}>
         <Image
-          source={require('../image/first_img.jpg')} // Replace with your image path
+          source={require('../image/SalmanKhan.webp')} // Replace with your image path
           style={styles.profileImage}
         />
-        <Text style={styles.userName}>Mohd Fardin</Text>
+        <Text style={styles.userName}>Salman Khan</Text>
         <Text style={styles.phoneNumber}>8530700229</Text>
       </View>
 

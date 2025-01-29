@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, ScrollView, SafeAreaView } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Sample data for stories
 const storiesData = [
@@ -34,11 +35,21 @@ const InstagramCard = ({ imageUrl, postDescription }) => (
   <View style={styles.card}>
     <Image source={imageUrl} style={styles.postImage} />
     <Text style={styles.postDescription}>{postDescription}</Text>
+
     <View style={styles.actions}>
-      <TouchableOpacity><Text style={styles.actionText}>Like</Text></TouchableOpacity>
-      <TouchableOpacity><Text style={styles.actionText}>Comment</Text></TouchableOpacity>
-      <TouchableOpacity><Text style={styles.actionText}>Share</Text></TouchableOpacity>
+      {/* Share Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Share</Text>
+        <Ionicons name="share-social-outline" size={18} color="#FFF" style={styles.iconRight} />
+      </TouchableOpacity>
+
+      {/* Download Button */}
+      <TouchableOpacity style={styles.button}>
+        <Ionicons name="download-outline" size={18} color="#FFF" style={styles.iconLeft} />
+        <Text style={styles.buttonText}>Download</Text>
+      </TouchableOpacity>
     </View>
+
   </View>
 );
 
@@ -79,17 +90,20 @@ const styles = StyleSheet.create({
     height:50,
     width:"100%",
     justifyContent:"center",
-    marginLeft:10
+    marginLeft:10,
+    marginTop:10
      }
   ,
   containerHeaderText:{
     color:"#000",
-    fontSize:25
+    fontSize:35,
+    fontFamily: "Billabong",
+   
   },
   containerStory: {
     
     height: 120,
-    paddingTop: 15,
+    paddingTop: 5,
   },
   storiesList: {
     paddingHorizontal: 10,
@@ -144,13 +158,30 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 10,
+    justifyContent: 'flex-start',
+    gap: 10, 
+    paddingVertical: 5,
+    paddingLeft: 10, 
   },
-  actionText: {
+  button: {
+    backgroundColor: '#E1306C',
+    paddingHorizontal: 15,
+    paddingVertical: 6,
+    borderRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+    elevation: 5,
+  },
+  buttonText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#007BFF',
+    color: '#FFFFFF',
+  },
+  iconRight: {
+    marginLeft: 5,  // Icon right me shift hoga
+  },
+  iconLeft: {
+    marginRight: 5, // Icon left me shift hoga
   },
 });
 
